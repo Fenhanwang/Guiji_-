@@ -21,7 +21,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fenhanwang.guiji"
+    },
+    "android": {
+      "package": "com.fenhanwang.guiji",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDdVrWgMtFH7d8P-4I5qbas40oLXRanc4Y"
+        }
+      }
     }
   }
 }
