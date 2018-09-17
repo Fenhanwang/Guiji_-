@@ -1,59 +1,63 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import {
+  createDrawerNavigator, 
+  createStackNavigator,
+  createBottomTabNavigator
+} from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-const HomeStack = createStackNavigator({
+const HomeStack = createDrawerNavigator({
   Home: HomeScreen,
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
+  drawerLabel: 'Home',
+  // drawerIcon: ({ focused }) => (
+  //   <DrawerIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
 };
 
-const LinksStack = createStackNavigator({
+const LinksStack = createDrawerNavigator({
   Links: LinksScreen,
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
-    />
-  ),
+  drawerLabel: 'Links',
+  // drawerIcon: ({ focused }) => (
+  //   <DrawerIcon
+  //     focused={focused}
+  //     name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+  //   />
+  // ),
 };
 
-const SettingsStack = createStackNavigator({
+const SettingsStack = createDrawerNavigator({
   Settings: SettingsScreen,
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
-    />
-  ),
+  drawerLabel: 'Settings',
+  // drawerIcon: ({ focused }) => (
+  //   <DrawerIcon
+  //     focused={focused}
+  //     name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+  //   />
+  // ),
 };
 
-export default createBottomTabNavigator({
+export default createDrawerNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
